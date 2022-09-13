@@ -1,0 +1,293 @@
+@font-face {
+    font-family: "HelveticaNeueRoman";
+    src: local("HelveticaNeueRoman"), url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 55\ Roman.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "HelveticaNeueThin";
+    src: local("HelveticaNeueThin"), url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 35\ Thin.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "HelveticaNeueLight";
+    src: local("HelveticaNeueExtended"), url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 45\ Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "HelveticaNeueMedium";
+    src: local("HelveticaNeueMedium"), url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 65\ Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "HelveticaNeueBold";
+    src: url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 75\ Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "HelveticaNeueBlack";
+    src: url('../public/fonts/HelveticaNeue/Helvetica\ Neue\ LT\ 95\ Black.ttf');
+    font-weight: 900;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "HelveticaNeueRoman", sans-serif;
+    letter-spacing: 1.5px;
+    transition: all .15s ease-in-out;
+}
+
+.font-thin {
+    font-family: "HelveticaNeueThin";
+}
+
+.font-light {
+    font-family: "HelveticaNeueLight";
+}
+
+.font-bold {
+    font-family: "HelveticaNeueBold";
+}
+
+.font-medium {
+    font-family: "HelveticaNeueMedium";
+}
+
+.font-medium {
+    font-family: "HelveticaNeueBlack";
+}
+
+:root {
+    --yellow-color: #DA9802;
+    --white-text-color: #F5F6F9;
+    --black-bg: #292929;
+}
+
+.app-color {
+    color: var(--yellow-color);
+}
+
+.app-bg {
+    background-color: var(--yellow-color);
+}
+
+.app-white {
+    color: var(--white-text-color);
+}
+
+.app-black {
+    color: var(--black-bg);
+}
+
+.app-border {
+    border-color: var(--yellow-color);
+}
+
+.app-bg-black {
+    background-color: var(--black-bg) !important;
+}
+
+.text-md {
+    font-size: 15px;
+}
+
+.text-light {
+    color: #BEBEBE;
+}
+
+.text-medium-black {
+    color: #707070;
+}
+
+#home-components {
+    background-image: url("../public/images/home\ link.svg");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+}
+
+.op-75 {
+    opacity: 0.75;
+}
+
+.bg-app-gray {
+    background-color: var(--white-text-color);
+}
+
+.control-btn {
+    white-space: nowrap;
+    user-select: none;
+    border: none;
+    padding: 4px;
+}
+
+.app-bg-black-transparent {
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.bg-lines {
+    background-image: url("../public/images/lines-svg-desktop.svg");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    mask-repeat: repeat-y;
+    background-size: fill;
+}
+
+.bg-attach-left {
+    background-position: left;
+}
+
+.bg-attach-right {
+    background-position: right top;
+}
+
+.bg-stractora {
+    background-image: url("../public/images/stractora-masked.svg");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: fill;
+    background-position: center;
+}
+
+.service-encloser {
+    cursor: pointer;
+}
+
+.service-encloser:hover {
+    background-color: var(--black-bg);
+    color: var(--white-text-color);
+}
+
+.service-encloser:hover svg path {
+    stroke: var(--yellow-color);
+}
+
+.service-control:hover {
+    background-color: var(--yellow-color);
+}
+
+.bg-achivement {
+    background-image: url("../public/images/house-blue-near.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#footer {
+    background-image: url("../public/images/lines-svg-opacity.svg");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: fill;
+    background-position: right top;
+}
+
+.letter-spacing {
+    letter-spacing: 2.5px;
+}
+
+#app {
+    height: 100%
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+
+
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+
+.swiper-pagination {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto !important;
+    left: auto !important;
+    margin: 0;
+}
+
+.swiper-pagination-bullet {
+    padding: 1px 10px;
+
+    /* width: auto; */
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+    width: 50px !important;
+    margin-left: 20px !important;
+    border-radius: 0 !important;
+    height: 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+    color: #fff;
+    background: #DA9802 !important;
+}
+
+.swiper-custom-pagination {
+    width: 10% !important;
+    position: relative !important;
+    top: 50px !important;
+
+}
+
+.swiper-custom-pagination1 {
+    width: 10% !important;
+    position: relative !important;
+    top: 50px !important;
+
+}
+
+.swiper-custom-pagination2>span {
+    width: 5px !important;
+    border-radius: 2.5px !important;
+    height: 5px !important;
+    background-color: #fff !important;
+}
+
+.buts {
+    position: relative !important;
+    top: 50px !important;
+}
+
+.view {
+    z-index: 20 !important;
+    position: relative !important;
+    top: 0px !important;
+}
