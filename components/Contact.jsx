@@ -10,6 +10,7 @@ export default function Contact() {
     e.preventDefault()
 
     setRandom(Math.floor(Math.random() * 1000000000))
+    console.log(random)
     try {
       const api = await fetch('https://stractora.herokuapp.com/contact/', {
         method: 'POST',
