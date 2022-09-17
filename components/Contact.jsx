@@ -4,11 +4,12 @@ export default function Contact() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+  const [random, setRandom] = useState(Math.floor(Math.random() * 1000000000))
   console.log(name)
   const handleFormSubmit = async e => {
     e.preventDefault()
 
-
+    setRandom(Math.floor(Math.random() * 1000000000))
     try {
       const api = await fetch('https://stractora.herokuapp.com/contact/', {
         method: 'POST',
@@ -17,7 +18,8 @@ export default function Contact() {
         body: JSON.stringify({
           name: (name),
           email: (email),
-          message: (message)
+          message: (message),
+          id: (random)
         })
       })
       const data = await api.json()
