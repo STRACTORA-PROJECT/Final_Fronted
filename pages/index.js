@@ -40,7 +40,7 @@ export default function Home({images,test}) {
         <About />
         <Services />
         <Achievements />
-        <Projects data={images} />
+        <Projects data={images}  />
         <Testimonials data={images}  testimonials={test}/>
         <DreamHouse />
         <Contact />
@@ -50,7 +50,7 @@ export default function Home({images,test}) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const results = await fetch(`https://api.cloudinary.com/v1_1/stractora/resources/image`, {
     headers: {
       Authorization: `Basic ${Buffer.from('729121727847811' + ':' + 'Ybn4PxCstPsegBzBw1fo9U5Arlo').toString('base64')}`

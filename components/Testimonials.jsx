@@ -81,7 +81,7 @@ export default function Testimonials({ data, testimonials }) {
                       <div className="pt-12">
                         <div className="flex flex-wrap justify-start items-center">
                           <LazyImage
-                            src={profiles[0].image}
+                            src={profiles[index].image}
                             alt="Yves Munezero"
                             className="w-12 h-12 rounded-full block object-fill"
                           />
