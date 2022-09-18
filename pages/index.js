@@ -10,7 +10,8 @@ import About from "../components/About";
 import DreamHouse from "../components/DreamHouse";
 import Testimonials from "../components/Testimonials";
 
-export default function Home(props) {
+export default function Home({images,test}) {
+  console.log(images);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen2">
       <Head>
@@ -29,6 +30,7 @@ export default function Home(props) {
         <noscript>
           <h1>Please enable Javascript in your browser to access this site.</h1>
         </noscript>
+        
       </Head>
       <main className="w-full p-0 flex-1">
         <div id="home-components">
@@ -38,8 +40,8 @@ export default function Home(props) {
         <About />
         <Services />
         <Achievements />
-        <Projects />
-        <Testimonials />
+        <Projects data={images} />
+        <Testimonials data={images}  testimonials={test}/>
         <DreamHouse />
         <Contact />
       </main>
@@ -48,8 +50,31 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
+  const results = await fetch(`https://api.cloudinary.com/v1_1/stractora/resources/image`, {
+    headers: {
+      Authorization: `Basic ${Buffer.from('729121727847811' + ':' + 'Ybn4PxCstPsegBzBw1fo9U5Arlo').toString('base64')}`
+    }
+  }).then(r => r.json())
+  console.log(results);
+  const { resources } = results
+  const images = resources.map(resource => {
+    
+      return {
+         image: resource.secure_url,
+         folder:resource.folder
+       }
+    }
+ 
+
+  )
+  const test= await   fetch('https://stractora.herokuapp.com/testimonial')
+  .then(response => response.json())
+
   return {
-    props: {}, // will be passed to the page component as props
-  };
+    props: {
+      images,
+      test
+    }
+  }
 }

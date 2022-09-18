@@ -8,6 +8,9 @@ export default function Contact() {
   console.log(name)
   const handleFormSubmit = async e => {
     e.preventDefault()
+    setName('')
+    setEmail('')
+    setMessage('')
 
     setRandom(Math.floor(Math.random() * 1000000000))
     console.log(random)
@@ -56,6 +59,7 @@ export default function Contact() {
                 placeholder="Name"
                 className="py-5 px-8 border border-gray-400 block w-full outline-none"
                 onChange={(e) => { setName(e.target.value) }}
+                value={name}
               />
             </div>
             <div className="py-5">
@@ -63,14 +67,18 @@ export default function Contact() {
                 type="email"
                 placeholder="Email"
                 className="py-5 px-8 border border-gray-400 block w-full outline-none"
-                onChange={(e) => { setEmail(e.target.value) }}
+                onChange={(e) => { setEmail(e.target.value) }
+                }
+                value={email}
               />
             </div>
             <div className="py-5">
               <textarea
                 placeholder="Message"
                 className="py-5 px-8 border border-gray-500 block w-full outline-none h-36 resize-none"
+
                 onChange={(e) => { setMessage(e.target.value) }}
+                value={message}
               />
             </div>
             <div className="py-5">

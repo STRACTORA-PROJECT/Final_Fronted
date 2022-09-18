@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LazyImage from "./LazyImage";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,11 +8,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
-export default function Testimonials() {
+export default function Testimonials({ data, testimonials }) {
   const [currentSlide, setCurrentSlide] = useState(1);
   const jumpTo = (index) => {
     setCurrentSlide(index);
   };
+  const profiles = data.filter(img => img.folder === 'Stractora_profiles');
+  console.log(profiles)
+  console.log(testimonials)
+
   return (
     <div
       id="testimonial"
@@ -63,60 +67,44 @@ export default function Testimonials() {
             }}
             modules={[Pagination, Navigation]}
           >
-            <SwiperSlide>
-              <div className="bg-app-gray py-6 px-8 lg:px-16 lg:py-20 xl:py-20">
-                <p className="text-sm lg:text-lg font-normal text-medium-black">
-                  Stractora made for me the best house design, sincerely working
-                  with them was a blessing as I got to get the house of my dreams
-                  and my kids and wife are also happy living in it which makes me
-                  happier as a man.
-                </p>
-                <div className="pt-12">
-                  <div className="flex flex-wrap justify-start items-center">
-                    <LazyImage
-                      src="/images/munezero.svg"
-                      alt="Yves Munezero"
-                      className="w-12 h-12 rounded-full block object-fill"
-                    />
-                    <div className="px-4">
-                      <p className="font-normal text-md text-medium-black">
-                        Yves Munezero
+            {
+              testimonials.map((testimonial, index) => {
+                return (
+                  <SwiperSlide>
+                    <div className="bg-app-gray py-6 px-8 lg:px-16 lg:py-20 xl:py-20">
+                      <p className="text-sm lg:text-lg font-normal text-medium-black">
+                        {
+                          testimonial.message
+                        }
+
                       </p>
-                      <p className="text-xs text-medium-black font-light">
-                        CEO of KABSTORE
-                      </p>
+                      <div className="pt-12">
+                        <div className="flex flex-wrap justify-start items-center">
+                          <LazyImage
+                            src={profiles[0].image}
+                            alt="Yves Munezero"
+                            className="w-12 h-12 rounded-full block object-fill"
+                          />
+                          <div className="px-4">
+                            <p className="font-normal text-md text-medium-black">
+                              {
+                                testimonial.name
+                              }
+                            </p>
+                            <p className="text-xs text-medium-black font-light">
+                              {testimonial.companyNames}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="bg-app-gray py-6 px-8 lg:px-16 lg:py-20 xl:py-20">
-                <p className="text-sm lg:text-lg font-normal text-medium-black">
-                  Stractora made for me the best house design, sincerely working
-                  with them was a blessing as I got to get the house of my dreams
-                  and my kids and wife are also happy living in it which makes me
-                  happier as a man.
-                </p>
-                <div className="pt-12">
-                  <div className="flex flex-wrap justify-start items-center">
-                    <LazyImage
-                      src="/images/munezero.svg"
-                      alt="Yves Munezero"
-                      className="w-12 h-12 rounded-full block object-fill"
-                    />
-                    <div className="px-4">
-                      <p className="font-normal text-md text-medium-black">
-                        Yves Munezero
-                      </p>
-                      <p className="text-xs text-medium-black font-light">
-                        CEO of KABSTORE
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+                  </SwiperSlide>
+
+                )
+              })
+            }
+
+
           </Swiper>
 
         </div>
